@@ -1,0 +1,42 @@
+//변수지정
+$default-space: 16px;
+$white: #fff; 
+$header-height: 80px;
+$bgcolor: black;
+//믹스인선언
+@mixin flexbox($direction:row, $justify:space-between, $align: center) 
+{
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+.inner_con {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+body {
+  font-size: 14px;
+  font-family: "맑은 고딕",sans-serif;
+  line-height: 1.6;
+}
+#header {
+  background: $bgcolor;
+  color: $white;
+  .inner_con {
+    @include flexbox();
+    height: $header-height;
+    ul {
+      @include flexbox();
+      li { padding: 0 $default-space;}
+    }
+  }
+}
+#visual {
+  background: $bgcolor;
+  color: $white;
+  img {
+    width: 100%;
+  }
+}
