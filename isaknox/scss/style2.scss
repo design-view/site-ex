@@ -40,3 +40,60 @@ body {
     width: 100%;
   }
 }
+#product_menu {
+  @include flexbox();
+  height: 120px;
+  border-bottom: 3px double #ccc;
+  ul {
+    @include flexbox();
+    li { padding: 0 $default-space;}
+  }
+}
+#product_lists {
+  text-align: center;
+  h3 {
+    padding: $default-space * 2;
+  }
+  ul {
+    @include flexbox();
+  }
+  padding: $default-space;
+}
+@mixin liLayout($color, $width, $height) {
+  background: $color;
+  width: $width;
+  height: $height;
+}
+#banner {
+  div {
+    float: left;
+    &:nth-child(1) { @include liLayout(blue, 50%, 500px); }
+    &:nth-child(2) { @include liLayout(red, 50%, 250px);}
+    &:nth-child(3) { @include liLayout(yellow, 25%, 250px);}
+    &:nth-child(4) { @include liLayout(green, 25%, 250px); }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &::after {
+    content: "";
+    display: block;
+    clear:both;
+  }
+}
+#footer_menu {
+  background-color: aliceblue;
+  @include flexbox();
+  height: 80px;
+  padding: $default-space;
+  ul {
+    @include flexbox();
+    li { padding: 0 $default-space; }
+  }
+}
+#footer_copy {
+  @include flexbox();
+  height: 80px;
+}
